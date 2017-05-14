@@ -1,5 +1,5 @@
 #BaseUrl Of the website
-baseurl = 'http://zozothemes.com/html/pearl/demo/'
+baseurl = 'http://Website.com/html/demo/'
 
 
 from bs4 import BeautifulSoup
