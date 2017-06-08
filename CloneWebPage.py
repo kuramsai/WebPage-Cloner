@@ -1,5 +1,5 @@
 #BaseUrl Of the website
-baseurl = 'http://Website.com/html/demo/'
+baseurl = 'Put the url here'
 
 
 from bs4 import BeautifulSoup
@@ -17,15 +17,19 @@ html_doc = response.read()
 
 try :
         soup = BeautifulSoup(html_doc, 'html.parser')
+        f = open( 'index.html', 'w' )
+        f.write(str(soup))
+        f.close()
+        print "Initializing Index File" 
         #Get All Images
         print "Process Initiated"
         print "Step 1: Getting all images."
         a = soup.find_all('img')
         for i in range(len(a)):
             directory =  a[i]['src']
-            print 'Getting file = '+str(directory)
+            print '\t[+]Getting file = '+str(directory)
             if not os.path.exists(os.path.dirname(directory)):
-                print "Creating directory"
+                print "    [DIR]Creating directory"
                 os.makedirs(os.path.dirname(directory))
             testfile = urllib.URLopener()
             testfile.retrieve(baseurl+directory, directory)
@@ -38,9 +42,9 @@ try :
             if "http" in directory or "https" in directory:
                 print "------Skipped for ----- ",directory
                 continue
-            print 'Getting file = '+str(directory)
+            print '\t[+]Getting file = '+str(directory)
             if not os.path.exists(os.path.dirname(directory)):
-                print "Creating directory"
+                print "    [DIR]Creating directory"
                 os.makedirs(os.path.dirname(directory))
             testfile = urllib.URLopener()
             testfile.retrieve(baseurl+directory, directory)
@@ -50,9 +54,9 @@ try :
         a = soup.find_all('script')
         for i in range(len(a)):
             directory =  a[i]['src']
-            print 'Getting file = '+str(directory)
+            print '\t[+]Getting file = '+str(directory)
             if not os.path.exists(os.path.dirname(directory)):
-                print "Creating directory"
+                print "    [DIR]Creating directory"
                 os.makedirs(os.path.dirname(directory))
             testfile = urllib.URLopener()
             testfile.retrieve(baseurl+directory, directory)
