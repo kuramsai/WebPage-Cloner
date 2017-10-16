@@ -1,5 +1,5 @@
 #BaseUrl Of the website
-baseurl = 'Put the url here'
+baseurl = 'http://canada.tonytemplates.com/rent-a-car/'
 
 
 from bs4 import BeautifulSoup
@@ -11,10 +11,10 @@ print '''Python script to Clone a Web Page
 Author : Sai Kiran Goud
 Date : 14 May 2017
 '''
-
+print "Connecting to server"
 response = urllib2.urlopen(baseurl)
 html_doc = response.read()
-
+print "Connection Success!"
 try :
         soup = BeautifulSoup(html_doc, 'html.parser')
         f = open( 'index.html', 'w' )
@@ -43,7 +43,9 @@ try :
                 print "------Skipped for ----- ",directory
                 continue
             print '\t[+]Getting file = '+str(directory)
-            if not os.path.exists(os.path.dirname(directory)):
+            if "/" not in directory:
+                    print "\tNo directory. Saving file",directory
+            elif not os.path.exists(os.path.dirname(directory)):
                 print "    [DIR]Creating directory"
                 os.makedirs(os.path.dirname(directory))
             testfile = urllib.URLopener()
@@ -53,7 +55,14 @@ try :
         #Get all JS
         a = soup.find_all('script')
         for i in range(len(a)):
-            directory =  a[i]['src']
+            try:
+                directory =  a[i]['src']
+            except Exception as e:
+                print "Excpetion occured in JS for",a[i]
+                continue
+            if "http" in directory or "https" in directory:
+                print "------Skipped for ----- ",directory
+                continue
             print '\t[+]Getting file = '+str(directory)
             if not os.path.exists(os.path.dirname(directory)):
                 print "    [DIR]Creating directory"
