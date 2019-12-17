@@ -1,9 +1,8 @@
 #BaseUrl Of the website
 #place link of the website without index.html
-#eg: http://canada.tonytemplates.com/rent-a-car/index.html is the website you want to clone
-#put the base URL as http://canada.tonytemplates.com/rent-a-car/
-baseurl = 'REPLACE URL HERE'
-
+#eg: http://xyz.com/index.html is the website you want to clone
+#put the base URL as http://xyz.com
+baseurl = 'Replace this'
 
 from bs4 import BeautifulSoup
 import os
