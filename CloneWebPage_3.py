@@ -2,13 +2,17 @@
 #place link of the website without index.html
 #eg: http://xyz.com/index.html is the website you want to clone
 #put the base URL as http://xyz.com/
-baseurl = 'Replace this'
+#baseurl = 'Replace this'
+baseurl = 'http://webdesign-finder.com/html/energy/'
 
 
 from bs4 import BeautifulSoup
 import os
 from urllib.request import urlretrieve
-from urllib.request import urlopen
+from urllib.request import urlretrieve
+import urllib.request
+
+
 
 print ('''Python script to Clone a Web Page
 Author : Sai Kiran Goud
@@ -24,7 +28,16 @@ def report(count, size, total):
             print("Downloaded {:,}/{:,} ...".format(progress[1], total))
 
 print ("Connecting to server")
-html_doc = urlopen(baseurl).read()
+
+opener = urllib.request.build_opener()
+#defining headers as some servers mandiate it
+opener.addheaders = [('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'),
+                        ('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'),
+                        ('Connection', 'keep-alive')
+                    ]
+urllib.request.install_opener(opener)
+html_doc = urllib.request.urlopen(baseurl).read()
+
 print ("Connection Success!")
 try :
         soup = BeautifulSoup(html_doc, 'html.parser')
