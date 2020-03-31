@@ -1,6 +1,11 @@
 # WebPage-Cloner
 This is a python script which clones a given website or web page with all the CSS,JS and Images. 
 
+Requirements
+------------
+BeautifulSoup
+URLlib
+
 How To use
 ------------
 1.Make sure you have python 2.7.x or 3.7.x. 
