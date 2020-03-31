@@ -2,9 +2,7 @@
 #place link of the website without index.html
 #eg: http://xyz.com/index.html is the website you want to clone
 #put the base URL as http://xyz.com/
-#baseurl = 'Replace this'
-baseurl = 'http://webdesign-finder.com/html/energy/'
-
+baseurl = 'Replace this'
 
 from bs4 import BeautifulSoup
 import os
