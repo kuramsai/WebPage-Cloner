@@ -3,9 +3,9 @@ This is a python script which clones a given website or web page with all the CS
 
 Requirements
 ------------
-BeautifulSoup
-URLlib
-cssutils
+- BeautifulSoup
+- URLlib
+- cssutils
 
 How To use
 ------------
