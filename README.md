@@ -5,6 +5,7 @@ Requirements
 ------------
 BeautifulSoup
 URLlib
+cssutils
 
 How To use
 ------------
