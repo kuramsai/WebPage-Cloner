@@ -36,7 +36,7 @@ opener.addheaders = [('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit
                         ('Connection', 'keep-alive')
                     ]
 urllib.request.install_opener(opener)
-html_doc = urllib.request.urlopen('https://envytheme.com/tf-demo/crake/crake/index-8.html').read()
+html_doc = urllib.request.urlopen(baseurl).read()
 
 print ("Connection Success!")
 try :
