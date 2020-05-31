@@ -89,7 +89,7 @@ try :
                     os.makedirs(os.path.dirname(directory))
                 testfile, headers = urlretrieve(baseurl+directory, directory, reporthook=report)   
                 urls = list( cssutils.getUrls(cssutils.parseFile(directory)))
-                if "fontawesome" in directory or "space__grotesk" in directory:
+                if "fontawesome" in directory:
                     continue
                 if(len(urls)!=0):
                     for link in urls:
